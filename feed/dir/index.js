@@ -39,4 +39,4 @@ app.post("/insert", function (req, res) {
     });
 });
 console.log("It's on!");
-app.listen(1801);
+app.listen(1801, "0.0.0.0");

@@ -1,12 +1,13 @@
+import proxy from "express-http-proxy";
 import express, { Response, Request } from "express";
-import bodyParser from "body-parser";
+
+import config from "./config";
+
 const app = express();
 
-import feed from "./routes/feed";
+app.use("/feed", proxy(`http://${config.host}:${config.ports.feed}`));
 
-app.use(bodyParser.json());
-
-app.use("/feed", feed);
+app.use("/python", proxy(`http://${config.host}:${config.ports.python}`));
 
 console.log("It's on!");
 app.listen(1800);

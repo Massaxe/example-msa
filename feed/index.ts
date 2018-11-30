@@ -37,4 +37,4 @@ app.post("/insert", (req: Request, res: Response) => {
 });
 
 console.log("It's on!");
-app.listen(1801);
+app.listen(1801, "0.0.0.0");
